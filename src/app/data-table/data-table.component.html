@@ -1,0 +1,58 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div
+        *ngFor="let o of oszlopok"
+        class="col"
+        >
+            {{o.text}}
+        </div>
+        <div class="col">
+            Műveletek
+        </div>
+    </div>
+
+    <!-- Új sor -->
+
+    <div class="row mb-4">
+       
+        <div
+        *ngFor="let o of oszlopok"
+        class="col"
+        >
+            <app-data-cell [sor]="ujSor" [oszlop]="o"></app-data-cell>
+         </div>
+         <div class="col">
+            <button type="button" 
+            class="btn btn-outline-primary"
+            (click)="onCreate(ujSor)"
+            >Hozzáadás</button>
+         </div>
+    </div>
+
+    <div *ngFor="let sor of adatok" class="row">
+        
+        <div
+        *ngFor="let o of oszlopok"
+        class="col"
+        >
+        
+        <app-data-cell [sor]="sor" [oszlop]="o"></app-data-cell>
+        
+        </div>
+
+        <div class="col btn-group">
+            <button type="button" 
+            class="btn btn-outline-primary"
+            (click)="onUpdate(sor)"
+            >Módosítás</button>
+            <button type="button" 
+            class="btn btn-outline-primary"
+            (click)="onDelete(sor)"
+            >Törlés</button>
+         </div>
+
+    </div>
+
+
+</div>

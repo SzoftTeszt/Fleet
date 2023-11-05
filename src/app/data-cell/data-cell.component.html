@@ -1,0 +1,20 @@
+<span [ngSwitch]="oszlop.type">
+
+<span *ngSwitchCase="'plain'">{{sor[oszlop.key]}}</span>
+
+<select
+    *ngSwitchCase="'select'"
+    [(ngModel)]="sor[oszlop.key]"
+    class="form-control"
+>
+    <option *ngFor="let ertek of oszlop.options"
+    [value]="ertek.value">{{ertek.text}}</option>
+</select>
+
+<input *ngSwitchDefault 
+[type]="oszlop.type"
+[(ngModel)]="sor[oszlop.key]"
+class="form-control"
+>
+
+</span>
